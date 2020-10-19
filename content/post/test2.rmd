@@ -136,9 +136,9 @@ health <- na.omit(health)
 ```{r health, echo=FALSE}
 health
 ```
+s
 
-
-```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
+```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE, echo=FALSE}
 par(mar = c(0, 1, 0, 1))
 pie(
   c(280, 60, 20),
