@@ -3,18 +3,18 @@ title: 'test2'
 date: '2020-10-19'
 ---
 
-```{r}
+```{r,include=FALSE}
 library(tidyverse)
 library(janitor)
 library(ggplot2)
 library(brms)
 ```
 ## Data
-```{r read data}
+```{r read data,include=FALSE}
 raw_health <- read_csv("AAsD8pYL_1.csv")
 ```
 
-```{r select variable}
+```{r select variable,include=FALSE}
 health <- raw_health %>% select(CASEID, dvagegr, dvsex, dvperinc, dvbmimdf, a9cap, g2cap, g3cap, h2hrs, j3, k4, m17cap, m19) 
 health <- health %>% clean_names() %>% 
     rename (case_id = caseid, age_first_diagnosed_with_diabetes = a9cap, sex = dvsex,  
@@ -131,9 +131,12 @@ health <- health %>%
       nightshift_frequency== 9 ~ as.character(NA),
 ))
 health <- na.omit(health)
+```
 
+```{r health, echo=FALSE}
 health
 ```
+
 
 ```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
 par(mar = c(0, 1, 0, 1))
